@@ -5,6 +5,11 @@
 #include <iostream>
 using std::cout, std::flush, std::this_thread::sleep_for, std::chrono::seconds;
 
+const std::vector<vitalRange> vitals = {
+  {"Temperature", 95, 102},
+  {"PulseRate",60,100},
+  {"Sp02",90,200}
+};
 
 void  vitalsCriticalAttention(void)
 {
@@ -16,19 +21,21 @@ void  vitalsCriticalAttention(void)
     }
 }
 
-int vitalsCheck(const vector<float>& currentValues)
+bool isVitalsNormal(const vector<float>& currentValues)
 {
-   for(size_t i=0;i<currentValues.size();i++)
+  int i;
+
+   for(std::size_t i=0;i<currentValues.size();i++)
   { float currentValue = currentValues[i];
     const auto& vital = vitals[i];
     if( currentValue > vital.maxNormal || currentValue< vital.minNormal)
     {
-      cout<<vital.name<<"= "<<currentValue<<" is critical"<<endl;
+      std::cout<<vital.name<<"= "<<currentValue<<" is critical"<<std::endl;
       vitalsCriticalAttention();
-      return 0;
+      return false; //return false if any vital is critical
     }  
   }
-return 1;
+return true; //return true if all vitals are normal
 }
 
 

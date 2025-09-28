@@ -1,18 +1,15 @@
 #pragma once
+#include <vector>
+#include <string>
 
 struct vitalRange{
-  string name;
+  std::string name;
   float minNormal;
   float maxNormal;
 }
 
-const vector<vitalRange> vitals = {
-  {"Temperature", 95, 102},
-  {"PulseRate",60,100},
-  {"Sp02",90,200}
-};
+extern const std::vector<vitalRange> vitals;
 
-// int vitalsOk(float temperature, float pulseRate, float spo2);
 int vitalsCheck(const vector<float>& currentValues);
 void  vitalsCriticalAttention(void);
 
