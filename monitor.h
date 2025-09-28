@@ -8,7 +8,8 @@ struct vitalRange{
   float maxNormal;
 }
 
-extern const std::vector<vitalRange> vitals;
+extern const std::vector<vitalRange> &vitals;
+extern vector<float> currentValues;
 
 void  vitalsCriticalAttention(void);
 bool isVitalsNormal(const vector<float>& currentValues);

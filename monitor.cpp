@@ -3,7 +3,7 @@
 #include <thread>
 #include <chrono>
 #include <iostream>
-using std::cout, std::flush, std::this_thread::sleep_for, std::chrono::seconds;
+using std::cout, std::vector,std::flush, std::this_thread::sleep_for, std::chrono::seconds;
 
 const std::vector<vitalRange> vitals = {
   {"Temperature", 95, 102},
