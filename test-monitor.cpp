@@ -1,5 +1,6 @@
 #include <gtest/gtest.h>
 #include "./monitor.h"
+using std::cout, std::vector,std::flush, std::this_thread::sleep_for, std::chrono::seconds;
 
 // TEST(Monitor, NotOkWhenAnyVitalIsOffRange) {
 //   ASSERT_FALSE(vitalsOk(99, 102, 70));
