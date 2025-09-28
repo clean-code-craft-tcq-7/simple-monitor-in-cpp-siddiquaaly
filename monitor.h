@@ -10,6 +10,7 @@ struct vitalRange{
 
 extern const std::vector<vitalRange> vitals;
 
-int vitalsCheck(const vector<float>& currentValues);
 void  vitalsCriticalAttention(void);
+bool isVitalsNormal(const vector<float>& currentValues);
+bool isSingleVitalNormal(float currentValuev, const vitalRange& vital);
 

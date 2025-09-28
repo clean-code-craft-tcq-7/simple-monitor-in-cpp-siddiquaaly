@@ -21,6 +21,10 @@ void  vitalsCriticalAttention(void)
     }
 }
 
+bool isSingleVitalNormal(float currentValue, const vitalRange&vital)
+{
+  return currentValue>=vital.minNormal&&currentValue<=vital.maxNormal;
+}
 bool isVitalsNormal(const vector<float>& currentValues)
 {
   int i;
@@ -28,7 +32,7 @@ bool isVitalsNormal(const vector<float>& currentValues)
    for(std::size_t i=0;i<currentValues.size();i++)
   { float currentValue = currentValues[i];
     const auto& vital = vitals[i];
-    if( currentValue > vital.maxNormal || currentValue< vital.minNormal)
+    if(!(isSingleVitalNormal) )
     {
       std::cout<<vital.name<<"= "<<currentValue<<" is critical"<<std::endl;
       vitalsCriticalAttention();
