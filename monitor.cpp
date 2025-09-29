@@ -5,6 +5,7 @@
 #include <iostream>
 using std::cout, std::vector,std::flush, std::this_thread::sleep_for, std::chrono::seconds;
 
+// Define vital ranges once
 const std::vector<vitalRange> vitals = {
   {"Temperature", 95, 102},
   {"PulseRate",60,100},
@@ -36,10 +37,10 @@ bool isVitalsNormal(const vector<float>& currentValues)
     {
       std::cout<<vital.name<<"= "<<currentValue<<" is critical"<<std::endl;
       vitalsCriticalAttention();
-      return false; //return false if any vital is critical
+      return false; // return false if any vital is critical
     }  
   }
-return true; //return true if all vitals are normal
+return true; // return true if all vitals are normal
 }
 
 
