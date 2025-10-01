@@ -24,7 +24,7 @@ void  vitalsCriticalAttention(void)
 
 bool isSingleVitalNormal(float currentValue, const vitalRange&vital)
 {
-  return currentValue>=vital.minNormal&&currentValue<=vital.maxNormal;
+  return ((currentValue>=vital.minNormal)&&(currentValue<=vital.maxNormal));
 }
 bool isVitalsNormal(const vector<float>& currentValues)
 {
