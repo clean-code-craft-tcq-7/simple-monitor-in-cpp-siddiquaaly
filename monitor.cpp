@@ -11,7 +11,9 @@ const std::vector<vitalRange> vitals = {
   {"PulseRate",60,100},
   {"Sp02",90,200}
 };
-
+/*
+*Function to draw attention of user if any of the vital are abnormal
+*/
 void  vitalsCriticalAttention(void)
 {
     for (int i = 0; i < 6; i++) {
@@ -22,11 +24,17 @@ void  vitalsCriticalAttention(void)
     }
 }
 
+/*
+*Function to check if each vital is normal
+*/
 bool isSingleVitalNormal(float currentValue, const vitalRange& vital)
 {
     return (currentValue >= vital.minNormal && currentValue <= vital.maxNormal);
 }
 
+/*
+*Function to check if any of the vitals are critical/abnormal
+*/
 bool isVitalsNormal(const vector<float>& currentValues)
 {
     for (std::size_t i = 0; i < currentValues.size(); i++)
@@ -42,5 +50,16 @@ bool isVitalsNormal(const vector<float>& currentValues)
         }
     }
     return true; // return true if all vitals are normal
+}
+
+/*
+*Function to execute testcases
+*/
+void checkVital(const std::vector<float>& values, bool expectedNormal, const std::string& message) {
+    if (expectedNormal) {
+        EXPECT_TRUE(isVitalsNormal(values)) << message;
+    } else {
+        EXPECT_FALSE(isVitalsNormal(values)) << message;
+    }
 }
 
