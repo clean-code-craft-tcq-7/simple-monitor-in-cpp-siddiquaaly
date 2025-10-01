@@ -6,7 +6,7 @@ struct vitalRange{
   std::string name;
   float minNormal;
   float maxNormal;
-}:
+};
 
 extern const std::vector<vitalRange> vitals;
 
