@@ -52,14 +52,5 @@ bool isVitalsNormal(const vector<float>& currentValues)
     return true; // return true if all vitals are normal
 }
 
-/*
-*Function to execute testcases
-*/
-void checkVital(const std::vector<float>& values, bool expectedNormal, const std::string& message) {
-    if (expectedNormal) {
-        EXPECT_TRUE(isVitalsNormal(values)) << message;
-    } else {
-        EXPECT_FALSE(isVitalsNormal(values)) << message;
-    }
-}
+
 

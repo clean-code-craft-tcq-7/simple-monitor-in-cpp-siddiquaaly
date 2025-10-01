@@ -3,6 +3,17 @@
 #include <vector>
 using std::vector;
 
+/*
+*Function to execute testcases
+*/
+void checkVital(const std::vector<float>& values, bool expectedNormal, const std::string& message) {
+    if (expectedNormal) {
+        EXPECT_TRUE(isVitalsNormal(values)) << message;
+    } else {
+        EXPECT_FALSE(isVitalsNormal(values)) << message;
+    }
+}
+
 TEST(Monitor_Temperature, TemperatureIsHigh) {
     std::vector<float> currentValues = {115.5, 80, 95};
     checkVital(currentValues, false, "Temp is high, condition is critical");
