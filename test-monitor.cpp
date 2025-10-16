@@ -1,6 +1,7 @@
 #include "./monitor.h"
 #include <gtest/gtest.h>
 #include <vector>
+#include <string>
 using std::vector;
 
 /*
