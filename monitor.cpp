@@ -1,3 +1,4 @@
+#include "test-monitor.h"
 #include "./monitor.h"
 #include <assert.h>
 #include <thread>
@@ -42,10 +43,10 @@ bool isVitalsNormal(const vector<float>& currentValues) {
         if (!isSingleVitalNormal(currentValue, vital)) {
             std::cout << vital.name << " = " << currentValue << " is critical" << std::endl;
             vitalsCriticalAttention();
-            return false; // return false if any vital is abnormal
+            return false;  // return false if any vital is abnormal
         }
     }
-    return true; // return true if all vitals are normal
+    return true;  // return true if all vitals are normal
 }
 
 
