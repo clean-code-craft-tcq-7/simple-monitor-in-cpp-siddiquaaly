@@ -1,4 +1,3 @@
-#include "test-monitor.h"
 #include "./monitor.h"
 #include <assert.h>
 #include <thread>
