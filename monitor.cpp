@@ -3,13 +3,14 @@
 #include <thread>
 #include <chrono>
 #include <iostream>
+#include <vector>
 using std::cout, std::vector, std::flush, std::this_thread::sleep_for, std::chrono::seconds;
 
 // Define vital ranges once
 const std::vector<vitalRange> vitals = {
   {"Temperature", 95, 102},
-  {"PulseRate", 60,100},
-  {"Sp02", 90,200}
+  {"PulseRate", 60, 100},
+  {"Sp02", 90, 200}
 };
 /*
 *Function to draw attention of user if any of the vital are abnormal
@@ -34,13 +35,11 @@ bool isSingleVitalNormal(float currentValue, const vitalRange& vital) {
 *Function to check if any of the vitals are critical/abnormal
 */
 bool isVitalsNormal(const vector<float>& currentValues) {
-    for (std::size_t i = 0; i < currentValues.size(); i++)
-    {
+    for (std::size_t i = 0; i < currentValues.size(); i++) {
         float currentValue = currentValues[i];
         const auto& vital = vitals[i];
 
-        if (!isSingleVitalNormal(currentValue, vital))
-        {
+        if (!isSingleVitalNormal(currentValue, vital)) {
             std::cout << vital.name << " = " << currentValue << " is critical" << std::endl;
             vitalsCriticalAttention();
             return false; // return false if any vital is abnormal
